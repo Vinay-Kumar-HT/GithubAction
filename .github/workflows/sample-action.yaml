@@ -20,8 +20,18 @@ jobs:
         run: |
           pwd
           ls -alR
-          
+
   job3:
+    name: Upload File
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World" > file.txt
+      - uses: actions/upload-artifact@v1
+        with:
+          name: file
+          path: file.txt
+          
+  job4:
     runs-on: ubuntu-latest
     steps:
       - name: print env variables
